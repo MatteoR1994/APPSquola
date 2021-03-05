@@ -40,8 +40,10 @@ class CoursesListActivity : AppCompatActivity() {
         val courseService = ServiceBuilder.buildService(CourseService::class.java)
         val requestCall = courseService.getCourses()
 
-        requestCall.enqueue(object: Callback<List<Course>> {
-
+        requestCall.enqueue(object: Callback<List<Course>> { // Classe interna anonima
+            // object: Callback<List<Course>> = il compilatore crea una classe, di cui non conosciamo
+            // il nome, che estende l'interfaccia Callback<List<Course>>. Dopo, crea un oggetto di quella
+            // classe.
             override fun onResponse(call: Call<List<Course>>, response: Response<List<Course>>) {
                 if (response.isSuccessful) {
                     val courses = response.body()!!

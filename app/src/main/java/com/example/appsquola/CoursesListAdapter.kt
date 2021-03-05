@@ -1,5 +1,6 @@
 package com.example.appsquola
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,13 @@ class CoursesListAdapter(private val coursesList: List<Course>) : RecyclerView.A
         holder.numHours.text = holder.course!!.numHours.toString()
         holder.description.text = holder.course!!.description
         holder.cost.text = holder.course!!.cost.toString()
+
+        holder.itemView.setOnClickListener { v ->
+            val context = v.context
+            val intent = Intent(context,CourseDetailsActivity::class.java)
+            intent.putExtra("courseId", holder.course!!.id)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
