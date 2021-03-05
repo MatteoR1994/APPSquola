@@ -46,4 +46,9 @@
         android:layout_marginBottom="12dp"
         android:ems="10"
         android:inputType="textPersonName" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/courseEditionList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.example.appsquola
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appsquola.model.Course
 import com.example.appsquola.services.CourseService
 import kotlinx.android.synthetic.main.activity_course_details.*
@@ -38,6 +39,11 @@ class CourseDetailsActivity : AppCompatActivity() {
                     courseHoursField.setText(courses.numHours.toString())
                     courseDescriptionField.setText(courses.description)
                     courseCostField.setText(courses.cost.toString())
+                    val linearLayoutEdition=LinearLayoutManager(this@CourseDetailsActivity)
+                    courseEditionList.layoutManager= linearLayoutEdition
+                    val adapterEdition=CourseEditionListAdapter(courses.editions.toList(),this@CourseDetailsActivity )
+                    courseEditionList.adapter= adapterEdition
+
                 } else {
                     Toast.makeText(this@CourseDetailsActivity, "Failed to load course", Toast.LENGTH_LONG).show()
                 }

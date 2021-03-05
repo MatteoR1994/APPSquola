@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit
 
 object ServiceBuilder {
 
-    private const val URL = "http://192.168.1.54:8080/api/"
+    private const val URL = "http://192.168.1.131:8080/api/"
 
     // Create OkHttp Client
     private val okHttp = OkHttpClient.Builder()

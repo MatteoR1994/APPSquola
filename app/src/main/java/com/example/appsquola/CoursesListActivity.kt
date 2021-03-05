@@ -54,7 +54,9 @@ class CoursesListActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<Course>>, t: Throwable) {
-                Toast.makeText(this@CoursesListActivity, "Error Occurred" + t.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(this@CoursesListActivity,
+                    "Error Occurred" + t.toString(), Toast.LENGTH_LONG).show()
+
             }
         })
     }
