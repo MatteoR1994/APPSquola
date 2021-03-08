@@ -1,4 +1,24 @@
 <resources>
     <string name="app_name">APP Squola</string>
     <string name="read_courses_button_text">LEGGI CORSI</string>
+    <string name="intro_string">Ciao, che bello rivederti!</string>
+    <string name="course_count_string">Corsi registrati attualmente: %d</string>
+    <string name="course_id_string">ID:\n%d</string>
+    <string name="course_title_string">Titolo:\n%s</string>
+    <string name="course_hours_string">N° ore:\n%d</string>
+    <string name="course_descr_string">Descrizione:\n%s</string>
+    <string name="course_cost_string">Costo:\n%s</string>
+    <string name="course_editions_string">N° edizioni:\n%d</string>
+    <string name="ce_id_string">ID:\n%d</string>
+    <string name="ce_code_string">Codice:\n%s</string>
+    <string name="ce_start_string">Inizio:\n%s</string>
+    <string name="ce_end_string">Fine:\n%s</string>
+    <string name="ce_course_id_string">ID corso:\n%d</string>
+    <string name="ce_course_title_string">Titolo corso:\n%s</string>
+    <string name="course_id_label">ID</string>
+    <string name="course_title_label">TITOLO</string>
+    <string name="course_hours_label">N° ORE</string>
+    <string name="course_desc_label">DESC.</string>
+    <string name="course_cost_label">COSTO</string>
+    <string name="course_editions_details_string">Queste sono le sue edizioni:</string>
 </resources>

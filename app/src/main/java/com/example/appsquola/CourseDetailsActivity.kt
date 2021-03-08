@@ -2,8 +2,10 @@ package com.example.appsquola
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.appsquola.model.Course
 import com.example.appsquola.services.CourseService
 import kotlinx.android.synthetic.main.activity_course_details.*
@@ -12,9 +14,13 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CourseDetailsActivity : AppCompatActivity() {
+    lateinit var editionsNumber: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_details)
+
+        editionsNumber = findViewById(R.id.courseDetailsEditionsNumberText)
 
         val bundle: Bundle? = intent.extras
 
@@ -39,11 +45,11 @@ class CourseDetailsActivity : AppCompatActivity() {
                     courseHoursField.setText(courses.numHours.toString())
                     courseDescriptionField.setText(courses.description)
                     courseCostField.setText(courses.cost.toString())
-                    val linearLayoutEdition=LinearLayoutManager(this@CourseDetailsActivity)
-                    courseEditionList.layoutManager= linearLayoutEdition
-                    val adapterEdition=CourseEditionListAdapter(courses.editions.toList(),this@CourseDetailsActivity )
-                    courseEditionList.adapter= adapterEdition
-
+                    val linearLayoutEdition = LinearLayoutManager(this@CourseDetailsActivity)
+                    courseEditionList.layoutManager = linearLayoutEdition
+                    //val adapterEdition = CourseEditionListAdapter(courses.editions.toList(),this@CourseDetailsActivity )
+                    val adapterEdition = CourseEditionListAdapter(courses.editions.toMutableList(),this@CourseDetailsActivity )
+                    courseEditionList.adapter = adapterEdition
                 } else {
                     Toast.makeText(this@CourseDetailsActivity, "Failed to load course", Toast.LENGTH_LONG).show()
                 }

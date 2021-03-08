@@ -1,6 +1,7 @@
 package com.example.appsquola.services
 
 import com.example.appsquola.model.Course
+import com.example.appsquola.model.CourseEdition
 import retrofit2.Call
 import retrofit2.http.DELETE
 import retrofit2.http.GET

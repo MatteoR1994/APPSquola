@@ -2,11 +2,11 @@ package com.example.appsquola
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appsquola.model.Course
-import com.example.appsquola.model.InMemoryCourseRepository
 import com.example.appsquola.services.CourseService
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,12 +14,14 @@ import retrofit2.Response
 
 class CoursesListActivity : AppCompatActivity() {
     lateinit var coursesList: RecyclerView
+    lateinit var coursesNumberString: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_courses_list)
 
         coursesList = findViewById(R.id.coursesList)
+        coursesNumberString = findViewById(R.id.totalCoursesNumberText)
 
 //        val memoryCourses = InMemoryCourseRepository.courses
 //
@@ -47,7 +49,8 @@ class CoursesListActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Course>>, response: Response<List<Course>>) {
                 if (response.isSuccessful) {
                     val courses = response.body()!!
-                    coursesList.adapter = CoursesListAdapter(courses)
+                    coursesNumberString.text = String.format(resources.getString(R.string.course_count_string), courses.size)
+                    coursesList.adapter = CoursesListAdapter(courses, this@CoursesListActivity)
                 } else {
                     Toast.makeText(this@CoursesListActivity, "Failed to retrieve items", Toast.LENGTH_LONG).show()
                 }
