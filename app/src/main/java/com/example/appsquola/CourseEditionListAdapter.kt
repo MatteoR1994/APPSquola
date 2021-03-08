@@ -44,9 +44,9 @@ class CourseEditionListAdapter(private val coursesEditionList: MutableList<Cours
                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                    if (response.isSuccessful) {
                        //val courses = response.body()!!
-                       //this@CourseEditionListAdapter.context.loadDetails(holder.courseEdition!!.courseId)
-                       coursesEditionList.removeAt(position)
-                       notifyItemRemoved(position)
+                     this@CourseEditionListAdapter.context.loadDetails(holder.courseEdition!!.courseId)
+                     //  coursesEditionList.removeAt(position)
+                     //  notifyItemRemoved(position)
                    } else {
                        Toast.makeText(this@CourseEditionListAdapter.context, "Failed to delete edition ${response.code()}", Toast.LENGTH_LONG).show()
                    }
