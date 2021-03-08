@@ -32,7 +32,7 @@ class CourseDetailsActivity : AppCompatActivity() {
 
         if (bundle?.containsKey("courseId")!!) {
              id = intent.getLongExtra("courseId", 0)
-            if(id!=null) {
+            if(id != null) {
                 loadDetails(id!!)
             }
         }
