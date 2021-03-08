@@ -21,4 +21,7 @@
     <string name="course_desc_label">DESC.</string>
     <string name="course_cost_label">COSTO</string>
     <string name="course_editions_details_string">Queste sono le sue edizioni:</string>
+    <string name="aggiungi_edizione">Aggiungi un Edizione</string>
+    <string name="add_edition_title">Crea  una nuova Edizione</string>
+    <string name="code_hint">Inserire il codice edizione</string>
 </resources>

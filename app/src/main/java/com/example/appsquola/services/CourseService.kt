@@ -3,9 +3,7 @@ package com.example.appsquola.services
 import com.example.appsquola.model.Course
 import com.example.appsquola.model.CourseEdition
 import retrofit2.Call
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface CourseService {
     @GET("course/")
@@ -16,4 +14,7 @@ interface CourseService {
 
     @DELETE("edition/{id}/")
     fun deleteEditionById(@Path("id") id: Long): Call<Unit>
+
+    @POST("course/{id}/editions")
+    fun addEdition(@Body newEdition: CourseEdition, @Path("id") id: Long): Call<CourseEdition>
 }

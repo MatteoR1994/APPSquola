@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.APPSquola">
-        <activity android:name=".CourseDetailsActivity"></activity>
+        <activity android:name=".NewCourseEditionActivity"></activity>
+        <activity android:name=".CourseDetailsActivity" />
         <activity android:name=".CoursesListActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

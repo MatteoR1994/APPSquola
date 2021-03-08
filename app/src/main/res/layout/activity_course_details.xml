@@ -283,6 +283,12 @@
             android:textSize="18sp"
             tools:text="@string/course_editions_details_string" />
 
+        <Button
+            android:id="@+id/addEdtionBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/aggiungi_edizione" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/courseEditionList"
             android:layout_width="match_parent"

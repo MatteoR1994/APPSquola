@@ -1,11 +1,12 @@
 package com.example.appsquola
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.appsquola.model.Course
 import com.example.appsquola.services.CourseService
 import kotlinx.android.synthetic.main.activity_course_details.*
@@ -15,18 +16,25 @@ import retrofit2.Response
 
 class CourseDetailsActivity : AppCompatActivity() {
     lateinit var editionsNumber: TextView
+    var id:Long?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_details)
 
         editionsNumber = findViewById(R.id.courseDetailsEditionsNumberText)
-
+        addEdtionBtn.setOnClickListener{
+            val intent = Intent(this, NewCourseEditionActivity::class.java)
+            intent.putExtra("courseId", id)
+            startActivity(intent)
+        }
         val bundle: Bundle? = intent.extras
 
         if (bundle?.containsKey("courseId")!!) {
-            val id = intent.getLongExtra("courseId", 0)
-            loadDetails(id)
+             id = intent.getLongExtra("courseId", 0)
+            if(id!=null) {
+                loadDetails(id!!)
+            }
         }
     }
     fun loadDetails(id: Long) {
