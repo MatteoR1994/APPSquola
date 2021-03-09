@@ -17,4 +17,7 @@ interface CourseService {
 
     @POST("course/{id}/editions")
     fun addEdition(@Body newEdition: CourseEdition, @Path("id") id: Long): Call<CourseEdition>
+
+    @PUT("course/{id}/")
+    fun updateCourse(@Body course: Course, @Path("id") id: Long): Call<Course>
 }

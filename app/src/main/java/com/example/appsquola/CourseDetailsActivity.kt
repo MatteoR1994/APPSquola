@@ -36,6 +36,11 @@ class CourseDetailsActivity : AppCompatActivity() {
                 loadDetails(id!!)
             }
         }
+
+        updateCourseButton.setOnClickListener {
+            updateCourse()
+        }
+
     }
     fun loadDetails(id: Long) {
         val courseService = ServiceBuilder.buildService(CourseService::class.java)
@@ -64,7 +69,37 @@ class CourseDetailsActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Course>, t: Throwable) {
-                Toast.makeText(this@CourseDetailsActivity, "Error Occurred" + t.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(this@CourseDetailsActivity, "Load Error Occurred" + t.toString(), Toast.LENGTH_LONG).show()
+            }
+        })
+    }
+    fun updateCourse() {
+        val courseId = courseIdField.text.toString().toLong()
+        val courseTitle = courseTitleField.text.toString()
+        val courseHours = courseHoursField.text.toString().toInt()
+        val courseDescription = courseDescriptionField.text.toString()
+        val courseCost = courseCostField.text.toString().toDouble()
+
+        val newCourse = Course(courseId, courseTitle, courseHours, courseDescription, courseCost, mutableSetOf())
+
+        val courseService = ServiceBuilder.buildService(CourseService::class.java)
+        val requestCall = courseService.updateCourse(newCourse, id!!)
+
+        requestCall.enqueue(object: Callback<Course> { // Classe interna anonima
+            // object: Callback<List<Course>> = il compilatore crea una classe, di cui non conosciamo
+            // il nome, che estende l'interfaccia Callback<List<Course>>. Dopo, crea un oggetto di quella
+            // classe.
+            override fun onResponse(call: Call<Course>, response: Response<Course>) {
+                if (response.isSuccessful) {
+                    val courses = response.body()!!
+                    Toast.makeText(this@CourseDetailsActivity, "Upload ok", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this@CourseDetailsActivity, "Failed to update course", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Course>, t: Throwable) {
+                Toast.makeText(this@CourseDetailsActivity, "Update Error Occurred" + t.toString(), Toast.LENGTH_LONG).show()
             }
         })
     }

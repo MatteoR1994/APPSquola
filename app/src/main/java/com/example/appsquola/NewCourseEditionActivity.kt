@@ -34,7 +34,7 @@ class NewCourseEditionActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
 
                         var newlyCreatedEdition = response.body() // Use it or ignore it
-                        Toast.makeText(this@NewCourseEditionActivity, "Successfully Added Edition with id  ${newlyCreatedEdition!!.id}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@NewCourseEditionActivity, "Successfully Added Edition with id  ${newlyCreatedEdition!!.id}", Toast.LENGTH_LONG).show()
                         finish() // Move back to CourseDetailsActivity
                     } else {
                         Toast.makeText(this@NewCourseEditionActivity, "Failed to add item", Toast.LENGTH_SHORT).show()
