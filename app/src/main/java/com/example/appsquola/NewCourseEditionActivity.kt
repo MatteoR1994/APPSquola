@@ -53,7 +53,7 @@ class NewCourseEditionActivity : AppCompatActivity() {
                         } else {
                             "$day"
                         }
-        val stringMonth = if(day <= 9) {
+        val stringMonth = if(month <= 9) {
                             "0$month"
                           } else {
                             "$month"

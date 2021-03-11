@@ -3,7 +3,6 @@ package com.example.appsquola
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -102,5 +101,9 @@ class CourseDetailsActivity : AppCompatActivity() {
                 Toast.makeText(this@CourseDetailsActivity, "Update Error Occurred" + t.toString(), Toast.LENGTH_LONG).show()
             }
         })
+    }
+    override fun onResume() {
+        super.onResume()
+        loadDetails(id!!)
     }
 }

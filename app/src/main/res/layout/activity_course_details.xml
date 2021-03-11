@@ -286,9 +286,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:fontFamily="casual"
+            android:text="@string/course_editions_details_string"
             android:textColor="@color/intro_string_color"
-            android:textSize="18sp"
-            tools:text="@string/course_editions_details_string" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/addEdtionBtn"
@@ -301,7 +301,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="12dp"
-            android:layout_weight="0.5" />
+            android:layout_weight="0.65" />
     </LinearLayout>
 
 

@@ -3,12 +3,10 @@ package com.example.appsquola
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import com.example.appsquola.model.CourseEdition
 import com.example.appsquola.services.CourseService
 import kotlinx.android.synthetic.main.activity_course_details.*
